@@ -16,6 +16,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
+
+const whitelist = [process.env.frontend_URL];
+
 const corsOptions = {
     origin: function (origin, callback) {
         if (!origin || whitelist.includes(origin)) {
